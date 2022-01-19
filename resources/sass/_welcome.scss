@@ -1,0 +1,191 @@
+body {
+    background-image: linear-gradient(to bottom right, #2a2a2a, #0e0e0e) !important;
+}
+
+/*  NAVIGATION  */
+.navbar {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: .1rem;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand img {
+    height: 3rem;
+}
+
+.navbar-nav li {
+    padding-right: .6rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.75) !important;
+    padding-top: .8rem;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: crimson !important;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+    color: red !important;
+    padding-top: .8rem;
+}
+
+.nav-dropdown-menu {
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.1rem !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+}
+
+.nav-dropdown-item {
+    color: white !important;
+}
+
+.nav-dropdown-item:hover, .dropdown-item:focus {
+    background-color: #4e555b !important;
+}
+
+.nav-dropdown-item:active, .nav-dropdown-item.active {
+    background-color: crimson !important;
+}
+
+.layout-dropdown {
+    margin-top: 14px !important;
+}
+
+/*  END NAVIGATION  */
+
+.jumbotron-fluid {
+    height: 100vh;
+    background-image: url("/storage/images/welcome-jumbotron.jpg");
+    background-size: cover;
+    text-shadow: #444 0 1px 1px;
+    color: #FFF;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.col-header{
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 100%;
+    margin: auto;
+}
+
+.col-text{
+    color: white;
+}
+
+.col-img{
+    background-size: cover;
+    width: 100%;
+}
+
+/*  ABOUT SECTION   */
+.first-jumbotron {
+    padding-top: 1rem;
+    margin-bottom: 0 !important;
+    background-color: #efefef !important;
+    border-radius: 0.1rem !important;
+}
+
+.about-icon {
+    font-size: 40px;
+    color: crimson;
+    margin-bottom: 10px;
+}
+
+.about-item {
+    margin: 0 20px 0 20px;
+}
+
+.about-title {
+    padding-bottom: 3.5rem;
+}
+
+.about-heading {
+    margin-bottom: 0 !important;
+    color: #4e555b !important;
+    font-size: 2rem;
+}
+
+.about-heading-underline {
+    padding-top: -0.5rem;
+    margin: auto;
+    width: 50px;
+    height: 10px;
+    border-bottom: 1px solid crimson;
+}
+
+/*  END ABOUT SECTION   */
+
+/*  NEWSLETTER SECTION   */
+#newsletter{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card {
+    width: 100%;
+    padding: 80px 50px;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2)
+}
+
+.contact-card{
+    max-width: 400px;
+}
+
+.card h3 {
+    color: #111;
+    margin-bottom: 50px;
+    border-left: 5px solid crimson;
+    padding-left: 10px;
+    line-height: 1em
+}
+
+.inputbox {
+    margin-bottom: 50px
+}
+
+.inputbox input {
+    position: absolute;
+    width: 300px;
+    background: transparent
+}
+
+.inputbox input:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #e54b38;
+    outline: 0;
+    box-shadow: none
+}
+
+.inputbox span {
+    position: relative;
+    top: 7px;
+    left: 1px;
+    padding-left: 10px;
+    display: inline-block;
+    transition: 0.5s
+}
+
+.inputbox input:focus~span {
+    transform: translateX(-10px) translateY(-32px);
+    font-size: 12px
+}
+
+.inputbox input:valid~span {
+    transform: translateX(-10px) translateY(-32px);
+    font-size: 12px
+}
+/*  END NEWSLETTER SECTION   */

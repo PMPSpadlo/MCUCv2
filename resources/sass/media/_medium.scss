@@ -1,0 +1,44 @@
+@media (max-width: 1000px) {
+  body {
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  .wrapper {
+    max-height: none;
+    max-width: none;
+    position: unset;
+    transform: none;
+    height: unset;
+    width: unset;
+    background-color: transparent;
+    .column {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  nav {
+    display: none;
+  }
+  .toggle-button {
+    display: flex;
+  }
+  nav.active {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    background-color: rgba(174, 181, 191, 0.9);
+    z-index: 98;
+    height: 100vh;
+    width: 100%;
+    animation-name: flipiny;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+    animation-timing-function: ease-out;
+    .menu {
+      font-size: 2.2em;
+      text-shadow: 0 0 10px black;
+      margin: 100px 5% 0 10%;
+    }
+  }
+}

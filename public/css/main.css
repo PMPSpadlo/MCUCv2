@@ -1,0 +1,538 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 840px;
+  min-width: 800px;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("/storage/images/unknown.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: screen;
+  font-size: 10px;
+  font-family: "Source Sans Pro", sans-serif;
+  position: relative;
+}
+
+.wrapper {
+  max-width: 1000px;
+  max-height: 800px;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  border-radius: 4%;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.wrapper * {
+  border-radius: 30px;
+}
+
+li {
+  list-style: none;
+}
+
+section {
+  color: #004585;
+  background-color: rgba(174, 181, 191, 0.6);
+  padding: 20px;
+  min-height: 150px;
+  font-size: 24px;
+  font-weight: 600;
+  position: relative;
+  box-shadow: 6px 5px 29px -8px #42445a;
+}
+
+section p span {
+  font-size: 0.75em;
+}
+
+.avatar {
+  max-width: 100px;
+  margin-right: 40px;
+  grid-column: 11;
+}
+
+div.user {
+  grid-column: 9/11;
+  grid-row: 1;
+  margin-top: 10px;
+  margin-right: 15px;
+  color: #a68c8a;
+  font-size: 2em;
+  text-align: right;
+}
+
+.user p ~ p {
+  font-size: 0.7rem;
+  color: white;
+}
+
+.column {
+  flex-direction: column;
+  width: 100%;
+}
+.column .first-row,
+.column .second-row,
+.column .third-row {
+  display: flex;
+}
+
+.first-row {
+  justify-content: flex-end;
+}
+.first-row .user-info {
+  margin-right: 10px;
+}
+
+.second-row {
+  justify-content: space-evenly;
+  margin: 40px 0 30px 0;
+}
+.second-row .first-crypto {
+  order: 1;
+  width: 30%;
+}
+.second-row .second-crypto {
+  order: 2;
+  width: 30%;
+}
+.second-row .my-balance {
+  order: 3;
+  width: 30%;
+}
+
+.third-row {
+  justify-content: space-around;
+}
+.third-row .my-coins {
+  flex-wrap: wrap;
+  order: 4;
+  width: 45%;
+}
+.third-row .recent-transaction {
+  flex-wrap: wrap;
+  order: 5;
+  width: 45%;
+}
+
+.small-square img {
+  display: block;
+  margin: 0;
+  max-height: 64px;
+  position: absolute;
+  top: -20%;
+  left: 33%;
+}
+.small-square p {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  color: #8bff55;
+}
+.small-square p ~ p {
+  color: black;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+}
+
+.big-square {
+  min-height: 398px;
+}
+.big-square > div {
+  background-color: black;
+  margin-top: 20px;
+  height: 3px;
+}
+.big-square > ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0px;
+  text-align: right;
+  font-size: 0.75em;
+  color: black;
+  font-weight: 300;
+  border-style: solid;
+  -o-border-image: radial-gradient(black, rgba(255, 255, 255, 0)) 1;
+     border-image: radial-gradient(black, rgba(255, 255, 255, 0)) 1;
+  border-width: 0 0 2px 0;
+  padding-bottom: 15px;
+}
+.big-square > ul li div {
+  display: flex;
+  align-items: center;
+}
+.big-square > ul li div p {
+  margin-left: 10px;
+}
+.big-square > ul li .transaction-details {
+  flex-direction: column;
+  align-items: flex-end;
+  color: #8bff55;
+  font-weight: 600;
+}
+.big-square > ul li .transaction-details p ~ p {
+  font-size: 0.7em;
+  color: black;
+  font-weight: 300;
+}
+.big-square img {
+  max-height: 32px;
+}
+
+nav {
+  display: flex;
+  background-color: rgba(174, 181, 191, 0.6);
+  height: 100%;
+  position: relative;
+  justify-content: center;
+  min-width: 250px;
+  box-shadow: 6px 5px 29px -8px #42445a;
+}
+nav .active {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  background-color: rgba(174, 181, 191, 0.9);
+  z-index: 98;
+  height: 100vh;
+  width: 100%;
+  -webkit-animation-name: flipiny;
+          animation-name: flipiny;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.menu img {
+  color: aliceblue;
+}
+.menu li {
+  font-size: 2em;
+  letter-spacing: 3px;
+}
+.menu li a {
+  color: white;
+  opacity: 100%;
+  text-decoration: none;
+}
+.menu li a i {
+  padding-right: 10px;
+}
+
+.icon {
+  color: white;
+}
+
+.toggle-button {
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  position: fixed;
+  z-index: 99;
+  top: 1.75rem;
+  left: 2rem;
+  width: 8vw;
+  height: 7vh;
+  padding: 5px 0;
+  background-color: black;
+  border-radius: 10px;
+}
+.toggle-button .bar {
+  height: 4px;
+  width: 60%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+angry-animate {
+  -webkit-animation: flipiny 1s linear 0s 1 normal;
+  animation: flipiny 1s linear 0s 1 normal;
+}
+
+@-webkit-keyframes flipiny {
+  0% {
+    opacity: 0;
+    transform: perspective(400px) rotateY(90deg);
+  }
+  40% {
+    transform: perspective(400px) rotateY(-10deg);
+  }
+  70% {
+    transform: perspective(400px) rotateY(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(400px) rotateY(0deg);
+  }
+}
+@keyframes flipiny {
+  0% {
+    opacity: 0;
+    transform: perspective(400px) rotateY(90deg);
+  }
+  40% {
+    transform: perspective(400px) rotateY(-10deg);
+  }
+  70% {
+    transform: perspective(400px) rotateY(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(400px) rotateY(0deg);
+  }
+}
+.second-row.coins-table {
+  height: 80%;
+}
+
+.percent {
+  text-shadow: 0 0 4px black;
+}
+
+.coins-table {
+  flex: 1;
+  margin: 10px;
+}
+.coins-table table tr:last-child {
+  border: none;
+}
+.coins-table table {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
+  height: 100%;
+  font-size: 0.7em;
+}
+.coins-table table tr:first-of-type {
+  padding-bottom: 20px;
+}
+.coins-table table tr {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  border-bottom: 1px solid #000;
+  border-radius: 0px;
+}
+.coins-table table tr th {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  flex-grow: 1;
+  flex-basis: 0;
+  font-weight: 600;
+  white-space: normal;
+  text-shadow: 0 0 2px white;
+}
+.coins-table table tr td {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 0px;
+  padding: 1em 0.2em;
+  font-weight: 600;
+  font-size: 0.9em;
+  color: black;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.coins-table table tr th:first-of-type,
+.coins-table table tr td:first-of-type {
+  flex-grow: 1.5;
+}
+.coins-table table tr th:nth-child(3),
+.coins-table table tr th:nth-child(4),
+.coins-table table tr th:nth-child(5),
+.coins-table table tr td:nth-child(3),
+.coins-table table tr td:nth-child(4),
+.coins-table table tr td:nth-child(5) {
+  flex-grow: 0.7;
+}
+
+.second-row.transactions-table {
+  height: 80%;
+}
+
+section.transactions-table table tr th:nth-child(2),
+section.transactions-table table tr td:nth-child(2) {
+  flex-grow: 0.8;
+}
+section.transactions-table table tr th:nth-child(3),
+section.transactions-table table tr td:nth-child(3) {
+  flex-grow: 1;
+}
+section.transactions-table table tr th:nth-child(4),
+section.transactions-table table tr td:nth-child(4) {
+  flex-grow: 1.3;
+}
+
+@media (max-width: 1000px) {
+  body {
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  .wrapper {
+    max-height: none;
+    max-width: none;
+    position: unset;
+    transform: none;
+    height: unset;
+    width: unset;
+    background-color: transparent;
+  }
+  .wrapper .column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .toggle-button {
+    display: flex;
+  }
+
+  nav.active {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    background-color: rgba(174, 181, 191, 0.9);
+    z-index: 98;
+    height: 100vh;
+    width: 100%;
+    -webkit-animation-name: flipiny;
+            animation-name: flipiny;
+    -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  nav.active .menu {
+    font-size: 2.2em;
+    text-shadow: 0 0 10px black;
+    margin: 100px 5% 0 10%;
+  }
+}
+@media (max-width: 625px) {
+  body {
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .toggle-button {
+    display: flex;
+    width: 10vh;
+  }
+
+  nav.active {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    background-color: rgba(174, 181, 191, 0.9);
+    z-index: 98;
+    height: 100vh;
+    width: 100%;
+    -webkit-animation-name: flipiny;
+            animation-name: flipiny;
+    -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  nav.active .menu {
+    font-size: 2.2em;
+    text-shadow: 0 0 10px black;
+    margin: 100px 5% 0 10%;
+  }
+
+  .wrapper {
+    max-height: none;
+    max-width: none;
+    position: unset;
+    transform: none;
+    height: unset;
+    width: unset;
+    background-color: transparent;
+  }
+  .wrapper .column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .second-row,
+.third-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .second-row .first-crypto,
+.second-row .second-crypto,
+.second-row .my-balance,
+.third-row .my-coins,
+.third-row .recent-transaction {
+    width: 90%;
+    font-size: 3rem;
+  }
+
+  .first-row.user .user-info {
+    font-size: 2em;
+  }
+  .first-row.user img {
+    max-width: 150px;
+  }
+
+  .second-row .second-crypto {
+    margin: 40px 0;
+  }
+  .second-row img {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .third-row .my-coins {
+    margin: 30px 0;
+  }
+
+  .third-row .recent-transaction {
+    margin-bottom: 50px;
+  }
+}

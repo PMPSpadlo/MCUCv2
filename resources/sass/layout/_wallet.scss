@@ -1,0 +1,73 @@
+.second-row {
+  &.coins-table {
+    height: 80%;
+  }
+}
+
+.percent {
+  text-shadow: 0 0 4px black;
+}
+.coins-table {
+  flex: 1;
+  margin: 10px;
+  table tr:last-child {
+    border: none;
+  }
+  table {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    height: 100%;
+    font-size: 0.7em;
+    tr:first-of-type {
+      padding-bottom: 20px;
+    }
+    tr {
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      border-bottom: 1px solid #000;
+      border-radius: 0px;
+
+      th {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        flex-grow: 1;
+        flex-basis: 0;
+        font-weight: 600;
+        white-space: normal;
+        text-shadow: 0 0 2px white;
+      }
+      td {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        flex-grow: 1;
+        flex-basis: 0;
+        min-width: 0px;
+        padding: 1em 0.2em;
+        font-weight: 600;
+        font-size: 0.9em;
+        color: black;
+        word-break: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      th:first-of-type,
+      td:first-of-type {
+        flex-grow: 1.5;
+      }
+
+      th:nth-child(3),
+      th:nth-child(4),
+      th:nth-child(5),
+      td:nth-child(3),
+      td:nth-child(4),
+      td:nth-child(5) {
+        flex-grow: 0.7;
+      }
+    }
+  }
+}

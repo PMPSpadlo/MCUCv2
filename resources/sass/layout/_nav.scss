@@ -1,0 +1,118 @@
+nav {
+  display: flex;
+  background-color: rgba(174, 181, 191, 0.6);
+  height: 100%;
+  position: relative;
+  justify-content: center;
+  min-width: 250px;
+  -webkit-box-shadow: 6px 5px 29px -8px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 6px 5px 29px -8px rgba(66, 68, 90, 1);
+  box-shadow: 6px 5px 29px -8px rgba(66, 68, 90, 1);
+  .active {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    background-color: rgba(174, 181, 191, 0.9);
+    z-index: 98;
+    height: 100vh;
+    width: 100%;
+    animation-name: flipiny;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+    animation-timing-function: ease-out;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  img {
+    color: aliceblue;
+  }
+
+  li {
+    font-size: 2em;
+    letter-spacing: 3px;
+    a {
+      color: rgba(255, 255, 255, 1);
+      opacity: 100%;
+      text-decoration: none;
+
+      i {
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+.icon {
+  color: white;
+}
+
+.toggle-button {
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  position: fixed;
+  z-index: 99;
+  top: 1.75rem;
+  left: 2rem;
+  width: 8vw;
+  height: 7vh;
+  padding: 5px 0;
+  background-color: black;
+  border-radius: 10px;
+  .bar {
+    height: 4px;
+    width: 60%;
+    background-color: white;
+    border-radius: 10px;
+  }
+}
+
+angry-animate {
+  -webkit-animation: flipiny 1s linear 0s 1 normal;
+  -moz-animation: flipiny 1s linear 0s 1 normal;
+  -ms-animation: flipiny 1s linear 0s 1 normal;
+  animation: flipiny 1s linear 0s 1 normal;
+}
+
+@-webkit-keyframes flipiny {
+  0% {
+    opacity: 0;
+    -webkit-transform: perspective(400px) rotateY(0deg);
+    transform: perspective(400px) rotateY(90deg);
+  }
+  40% {
+    -webkit-transform: perspective(400px) rotateY(0deg);
+    transform: perspective(400px) rotateY(-10deg);
+  }
+  70% {
+    -webkit-transform: perspective(400px) rotateY(0deg);
+    transform: perspective(400px) rotateY(10deg);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: perspective(400px) rotateY(0deg);
+    transform: perspective(400px) rotateY(0deg);
+  }
+}
+
+@keyframes flipiny {
+  0% {
+    opacity: 0;
+    transform: perspective(400px) rotateY(90deg);
+  }
+  40% {
+    transform: perspective(400px) rotateY(-10deg);
+  }
+  70% {
+    transform: perspective(400px) rotateY(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(400px) rotateY(0deg);
+  }
+}
