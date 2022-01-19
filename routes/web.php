@@ -22,6 +22,7 @@ Route::get('/karol/index', 'App\Http\Controllers\PageController@karolIndex')->na
 Route::get('/karol/market', 'App\Http\Controllers\PageController@karolMarket')->name('karolMarket');
 Route::get('/karol/transactions', 'App\Http\Controllers\PageController@karolTransactions')->name('karolTransactions');
 Route::get('/karol/wallet', 'App\Http\Controllers\PageController@karolWallet')->name('karolWallet');
+Route::get('/testcoin', 'App\Http\Controllers\CurrencyController@testCoin')->name('testCoin');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
