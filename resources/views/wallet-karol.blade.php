@@ -7,58 +7,25 @@
             <table>
                 <tr>
                     <th>Name</th>
+                    <th>Own</th>
                     <th>Price</th>
-                    <th>1h%</th>
-                    <th>24%</th>
-                    <th>7 days</th>
-                    <th>Shares</th>
-                    <th>PnL</th>
+                    <th>1h %</th>
+                    <th>24h %</th>
+                    <th>7days %</th>
+
                 </tr>
+                @foreach($currencies as $currency)
                 <tr>
-                    <td>Bitcoin</td>
-                    <td>64 028$</td>
-                    <td class="percent">-2%</td>
-                    <td class="percent">+10%</td>
-                    <td class="percent">+18%</td>
-                    <td>0,03</td>
-                    <td class="percent">+1,4%</td>
+                    <td>{{$currency->name}}</td>
+                    <td>{{$currency->own}}</td>
+                    <td>{{$currency->price}}</td>
+                    <td class="percent">{{$currency->percent_change_1h}}</td>
+                    <td class="percent">{{$currency->percent_change_24h}}</td>
+                    <td class="percent">{{$currency->percent_change_7d}}</td>
+
                 </tr>
-                <tr>
-                    <td>Ethereeeeeeeeeeeeeeeeeeeeeeeeum</td>
-                    <td>4 028$</td>
-                    <td class="percent">-3%</td>
-                    <td class="percent">+5%</td>
-                    <td class="percent">+15%</td>
-                    <td>0,28</td>
-                    <td class="percent">+1,4%</td>
-                </tr>
-                <tr>
-                    <td>Ethereum</td>
-                    <td>4 028$</td>
-                    <td class="percent">-3%</td>
-                    <td class="percent">+5%</td>
-                    <td class="percent">+15%</td>
-                    <td>0,28</td>
-                    <td class="percent">+1,4%</td>
-                </tr>
-                <tr>
-                    <td>Ethereum</td>
-                    <td>4 028$</td>
-                    <td class="percent">-3%</td>
-                    <td class="percent">+5%</td>
-                    <td class="percent">+15%</td>
-                    <td>0,28</td>
-                    <td class="percent">+1,4%</td>
-                </tr>
-                <tr>
-                    <td>Ethereum</td>
-                    <td>4 028$</td>
-                    <td class="percent">-3%</td>
-                    <td class="percent">+5%</td>
-                    <td class="percent">+15%</td>
-                    <td>0,28</td>
-                    <td class="percent">+1,4%</td>
-                </tr>
+                @endforeach
+
             </table>
         </section>
     </div>

@@ -3,60 +3,35 @@
 @section('content')
 
     <div class="second-row coins-table">
-        <section class="coins-table">
+        <section class="coins-table" style="padding-bottom: 50px !important;">
             <table>
                 <tr>
                     <th>Name</th>
                     <th>Price</th>
-                    <th>1h%</th>
-                    <th>24%</th>
-                    <th>7 days</th>
+                    <th>1h %</th>
+                    <th>24h %</th>
+                    <th>7days %</th>
                     <th>Market Cap</th>
 
                 </tr>
+                @foreach($currencies as $currency)
                 <tr>
-                    <td>Bitcoin</td>
-                    <td>64 028$</td>
-                    <td class="percent">-2%</td>
-                    <td class="percent">+10%</td>
-                    <td class="percent">+18%</td>
-                    <td>10 000 mln</td>
+                    <td>{{$currency->name}}</td>
+                    <td>{{$currency->price}}</td>
+                    <td class="percent">{{$currency->percent_change_1h}}</td>
+                    <td class="percent">{{$currency->percent_change_24h}}</td>
+                    <td class="percent">{{$currency->percent_change_7d}}</td>
+                    <td>{{$currency->market_cap}}</td>
 
                 </tr>
-                <tr>
-                    <td>Ethereeeeeeeeeeeeeeeeeeeeeeeeum</td>
-                    <td>4 028$</td>
-                    <td class="percent">-3%</td>
-                    <td class="percent">+5%</td>
-                    <td class="percent">+15%</td>
-                    <td>5 000 mln</td>
-                </tr>
-                <tr>
-                    <td>Ethereum</td>
-                    <td>4 028$</td>
-                    <td class="percent">-3%</td>
-                    <td class="percent">+5%</td>
-                    <td class="percent">+15%</td>
-                    <td>5 000 mln</td>
+                @endforeach
 
-                </tr>
-                <tr>
-                    <td>Ethereum</td>
-                    <td>4 028$</td>
-                    <td class="percent">-3%</td>
-                    <td class="percent">+5%</td>
-                    <td class="percent">+15%</td>
-                    <td>5 000 mln</td>
-                </tr>
-                <tr>
-                    <td>Ethereum</td>
-                    <td>4 028$</td>
-                    <td class="percent">-3%</td>
-                    <td class="percent">+5%</td>
-                    <td class="percent">+15%</td>
-                    <td>5 000 mln</td>
-                </tr>
+
             </table>
+            <span class="testowa">
+                 {{$currencies->links() }}
+            </span>
+
         </section>
     </div>
 

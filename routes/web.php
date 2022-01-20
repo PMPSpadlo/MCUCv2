@@ -14,20 +14,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/karol/index', 'App\Http\Controllers\PageController@karolIndex')->name('karolIndex');
-Route::get('/karol/market', 'App\Http\Controllers\PageController@karolMarket')->name('karolMarket');
-Route::get('/karol/transactions', 'App\Http\Controllers\PageController@karolTransactions')->name('karolTransactions');
-Route::get('/karol/wallet', 'App\Http\Controllers\PageController@karolWallet')->name('karolWallet');
-Route::get('/testcoin', 'App\Http\Controllers\CurrencyController@testCoin')->name('testCoin');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['middleware' => 'is.admin'], function () {
     Voyager::routes();
+    Route::get('/testcoin', 'App\Http\Controllers\CurrencyController@testCoin')->name('testCoin');
 });
 
-Auth::routes();
+Route::group(['middleware' => 'is.user'], function () {
+    Route::get('/karol/index', 'App\Http\Controllers\PageController@karolIndex')->name('karolIndex');
+    Route::get('/karol/market', 'App\Http\Controllers\PageController@karolMarket')->name('karolMarket');
+    Route::get('/karol/transactions', 'App\Http\Controllers\OrderController@index')->name('karolTransactions');
+    Route::get('/karol/transactions/new', 'App\Http\Controllers\OrderController@add')->name('karolNewTransactions');
+    Route::get('/karol/wallet', 'App\Http\Controllers\PageController@karolWallet')->name('karolWallet');
+    Route::post('store-order','App\Http\Controllers\OrderController@store');
+});
+
+Route::get('/', 'App\Http\Controllers\PageController@index')->name('landing');
+
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

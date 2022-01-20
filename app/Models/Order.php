@@ -9,13 +9,13 @@ class Order extends Model
 {
     use HasFactory;
 
-    public function wallet()
+    public function user()
     {
-        return $this->belongsTo(Wallet::class);
+        return User::where('id',$this->wallet_id)->first();
     }
 
     public function currency()
     {
-        return $this->belongsTo(Currency::class);
+        return Currency::where('id',$this->currency_id)->first();
     }
 }

@@ -13,17 +13,6 @@ class User extends \TCG\Voyager\Models\User
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
-
-    /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
@@ -42,13 +31,13 @@ class User extends \TCG\Voyager\Models\User
         'email_verified_at' => 'datetime',
     ];
 
-    public function wallet()
+    public function orders()
     {
-        return $this->hasOne(Wallet::class);
+        return Order::where('wallet_id',$this->id)->get();
     }
 
     public function favorites()
     {
-        return $this->hasMany(Favorites_currencies::class);
+        return Favorites_currencies::where('user_id',$this->id)->get();
     }
 }

@@ -35,23 +35,22 @@
         <div class="bar"></div>
         <div class="bar"></div>
     </a>
-    <nav>
+    <nav class="karol">
         <ul class="menu">
             <li><a href="{{ route('karolIndex') }}"><i class="fa fa-home icon"></i>Dashboard</a></li>
             <li><a href="{{ route('karolMarket') }}"><i class="fa fa-poll icon"></i>Market</a></li>
             <li><a href="{{ route('karolTransactions') }}"><i class="fa fa-user icon"></i>Profile</a></li>
-            <li></i><a href="{{ route('karolWallet') }}"><i class="fa fa-wallet icon"></i>Wallet</a></li>
-            <li>
-                <a href="{{ route('karolTransactions') }}"><i class="fa fa-exchange-alt icon"></i>Transaction</a>
-            </li>
+            <li><a href="{{ route('karolWallet') }}"><i class="fa fa-wallet icon"></i>Wallet</a></li>
+            <li><a href="{{ route('karolTransactions') }}"><i class="fa fa-exchange-alt icon"></i>Transaction</a></li>
+            <li><a href="{{ route('karolNewTransactions') }}"><i class="fa fa-exchange-alt icon"></i>New transaction</a></li>
             <li><a href="#"><i class="fa fa-sign-out-alt icon"></i>Logout</a></li>
         </ul>
     </nav>
     <div class="column">
         <div class="user first-row">
             <div class="user-info">
-                <p>Hello, Jeff!</p>
-                <p>Mon, 25/10/2021 3:50am</p>
+                <p>Hello, {{ Auth::user()->name }}!</p>
+                <p>{{ \Carbon\Carbon::now() }}</p>
             </div>
             <img class="avatar" src="{{asset('storage/images/avatar.png')}}">
         </div>

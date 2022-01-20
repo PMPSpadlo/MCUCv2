@@ -16,13 +16,19 @@ class CreateCurrenciesTable extends Migration
         Schema::create('currencies', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
+            $table->string('slug')->unique();
             $table->string('symbol')->unique();
-            $table->string('family');
-            $table->integer('category');
             $table->double('price');
-            $table->double('market_cap');
-            $table->double('volume');
-            $table->string('icon');
+            $table->double('volume_24h')->nullable();
+            $table->double('volume_change_24h')->nullable();
+            $table->double('percent_change_1h')->nullable();
+            $table->double('percent_change_24h')->nullable();
+            $table->double('percent_change_7d')->nullable();
+            $table->double('percent_change_30d')->nullable();
+            $table->double('market_cap')->nullable();
+            $table->double('max_supply')->nullable();
+            $table->double('circulating_supply')->nullable();
+            $table->string('icon')->nullable();
             $table->timestamps();
         });
     }

@@ -27,57 +27,28 @@
             <p>My coins</p>
             <div></div>
             <ul>
+                @foreach($currencies as $currency)
                 <li>
                     <div><img src="{{asset('storage/images/btc_cryptocurrencies_icon_188406.png')}}" alt="">
-                        <p>Bitcoin</p></div>
-                    <p>3</p>
+                        <p>{{$currency->name}}</p>
+                    </div>
+                    <p>{{$currency->own}}</p>
                 </li>
-                <li>
-                    <div><img src="{{asset('storage/images/eth-crypto-cryptocurrency-cryptocurrencies-cash-money-bank-payment_95451.png')}}"
-                              alt="">
-                        <p>Ethereum</p></div>
-                    <p>3</p>
-                </li>
-                <li>
-                    <div><img src="{{asset('storage/images/shiba-inu-shib-logo.png')}}" alt="">
-                        <p>Shiba inu</p></div>
-                    <p>1 200 000</p>
-                </li>
-                <li>
-                    <div><img src="{{asset('storage/images/Dogecoin-icon.png')}}" alt="">
-                        <p>Dogecoin</p></div>
-                    <p>850 000</p>
-                </li>
-                <li>
-                    <div><img src="{{asset('storage/images/binance-coin-icon-2211-thumb.png')}}" alt="">
-                        <p>Binance coin</p></div>
-                    <p>17</p>
-                </li>
+                    @endforeach
             </ul>
         </section>
         <section class="recent-transaction big-square">
             <p>Recent transactions</p>
             <div></div>
             <ul>
+                @foreach($orders as $order)
                 <li>
                     <div><img src="{{asset('storage/images/shiba-inu-shib-logo.png')}}" alt="">
-                        <p>Shiba inu</p></div>
-                    <div class="transaction-details"><p class="percent">+ 300 000</p>
-                        <p>at 24/10/2021 23:55</p></div>
+                        <p>{{$order->currency()->name}}</p></div>
+                    <div class="transaction-details"><p class="percent">@if($order->type == 1)<span style="color: rgb(0, 255, 41);">+@else <span style="color: rgb(255, 72, 72);">-@endif{{$order->amount}}</span></p>
+                        <p>{{$order->created_at}}</p></div>
                 </li>
-                <li>
-                    <div><img src="{{asset('storage/images/shiba-inu-shib-logo.png')}}" alt="">
-                        <p>Shiba inu</p></div>
-                    <div class="transaction-details"><p class="percent">- 250 000</p>
-                        <p>at 24/10/2021 23:35</p></div>
-                </li>
-                <li>
-                    <div><img src="{{asset('storage/images/eth-crypto-cryptocurrency-cryptocurrencies-cash-money-bank-payment_95451.png')}}"
-                              alt="">
-                        <p>Ethereum</p></div>
-                    <div class="transaction-details"><p class="percent">+ 0.76</p>
-                        <p>at 20/10/2021 03:55</p></div>
-                </li>
+                @endforeach
             </ul>
         </section>
     </div>

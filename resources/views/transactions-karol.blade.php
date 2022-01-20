@@ -3,54 +3,29 @@
 @section('content')
 
         <div class="second-row coins-table">
-            <section class="coins-table transactions-table">
+            <section class="coins-table transactions-table" style="padding-bottom: 50px !important;">
                 <table>
                     <tr>
                         <th>Coin</th>
-                        <th>Total</th>
+                        <th>Price</th>
                         <th>Transaction</th>
                         <th>Date</th>
 
                     </tr>
+                    @foreach($orders as $order)
                     <tr>
-                        <td>Bitcoin</td>
-                        <td>0.015</td>
-                        <td class="percent">+0.015</td>
-                        <td>24/10/2021 23:35</td>
+                        <td>{{$order->currency()->name}}</td>
+                        <td>{{$order->limit}}</td>
+                        <td class="percent">@if($order->type == 1)<span style="color: rgb(0, 255, 41);">+@else <span style="color: rgb(255, 72, 72);">-@endif{{$order->amount}}</span></td>
+                        <td>{{$order->created_at}}</td>
 
 
                     </tr>
-                    <tr>
-                        <td>Ethereeeeeeeeeeeeeeeeeeeeeeeeum</td>
-                        <td>0.47</td>
-                        <td class="percent">+0.2</td>
-                        <td>24/10/2021 23:35</td>
-
-
-                    </tr>
-                    <tr>
-                        <td>Ethereum</td>
-                        <td>0.27</td>
-                        <td class="percent">-0.5</td>
-                        <td>24/10/2021 23:35</td>
-
-
-                    </tr>
-                    <tr>
-                        <td>Ethereum</td>
-                        <td>0.97</td>
-                        <td class="percent">+0.2</td>
-                        <td>24/10/2021 23:35</td>
-
-                    </tr>
-                    <tr>
-                        <td>Ethereum</td>
-                        <td>0.77</td>
-                        <td class="percent">+0.77</td>
-                        <td>24/10/2021 23:35</td>
-
-                    </tr>
+                    @endforeach
                 </table>
+                <span class="testowa">
+                 {{$orders->links() }}
+            </span>
             </section>
         </div>
 
